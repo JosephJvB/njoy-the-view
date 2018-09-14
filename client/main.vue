@@ -3,7 +3,7 @@
   <div id="MAIN">
     <Header></Header>
     <button v-on:click="addWatchedVideo">GET VIDS</button>
-    <VideoCarousel v-bind:videos="allVideos"></VideoCarousel>
+    <VideoCarousel v-if="allVideos.length > 0" v-bind:videos="allVideos"></VideoCarousel>
     <WatchedVideosList v-bind:videos="watchedVideos"></WatchedVideosList>
   </div>
 </template>

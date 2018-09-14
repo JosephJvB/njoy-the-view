@@ -2,13 +2,30 @@
 <template>
   <div id="VID_CAROUSEL">
     videos go here :)
+    <Carousel
+      :perPage="1"
+      :navigationEnabled="true"
+      >
+        <Slide
+            v-for="(vid, i) in videos"
+            :key="i"
+          >
+          <img v-bind:src="vid.images[0].url"/>
+        </Slide>
+    </Carousel>
   </div>
 </template>
 
 // ---SCRIPT---
 <script>
+  import { Carousel, Slide } from 'vue-carousel'
+
   export default {
-    props: ['videos']
+    components: {
+      Carousel,
+      Slide,
+    },
+    props: ['videos'],
   }
 </script>
 

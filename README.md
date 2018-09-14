@@ -10,6 +10,10 @@
 
 > npm i
 
+- run database migrations
+
+> npm run migrate:up
+
 - running the start script will start the server and bundle the client-side code
 
 > npm start
