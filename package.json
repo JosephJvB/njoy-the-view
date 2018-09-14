@@ -2,8 +2,9 @@
   "name": "njoy-the-vue",
   "version": "0.0.1",
   "description": "check it out!",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
+    "start": "node server/index.js",
     "test": "test"
   },
   "keywords": [
