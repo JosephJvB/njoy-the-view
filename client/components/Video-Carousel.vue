@@ -1,7 +1,7 @@
 // ---TEMPLATE---
 <template>
   <div id="VID_CAROUSEL">
-    videos go here :)
+
     <Carousel
       :perPage="1"
       :navigationEnabled="true"
@@ -10,7 +10,9 @@
           v-for="(vid, i) in videos"
           :key="i"
         >
+        <p id="VID_TITLE">{{ vid.title }}</p>
         <img
+          id="SLIDE_ITEM"
           v-bind="{src:vid.images[0].url}"
           @click.prevent="addWatchedVideo(vid.id)"
         />
@@ -39,5 +41,12 @@
     border: solid 1px grey;
     height: 50%;
     width: 80%;
+  }
+  #SLIDE_ITEM {
+    margin: auto;
+    display: block;
+  }
+  #VID_TITLE {
+    text-align: center;
   }
 </style>

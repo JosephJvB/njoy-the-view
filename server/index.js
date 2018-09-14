@@ -37,7 +37,6 @@ function getWatchedVideoIds () {
       .catch(console.error)
 }
 
-// NOT TESTED
 api.post('/api/v1/addVideoToWatched/:id', (req, res) => {
       // check if vid already in db as watched
       return DB('watched_videos')

@@ -5,8 +5,8 @@
     <VideoCarousel
       v-if="allVideos.length > 0"
       v-bind="{
-          videos:allVideos,
-          addWatchedVideo: addWatchedVideo
+          videos: allVideos,
+          addWatchedVideo
         }"
     >
     </VideoCarousel>
