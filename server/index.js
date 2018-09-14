@@ -1,10 +1,10 @@
-const fetch = require('node-fetch')
 // SERVER components
 const parcelBundler = require('parcel-bundler'),
       bundler = new parcelBundler('static/index.html', {/* can pass options here */})
 const express = require('express'),
       api = express()
 
+const fetch = require('node-fetch')
 // db connection
 const config = require('../knexfile')[process.env.NODE_ENV || 'development']
 const DB = require('knex')(config)
@@ -19,26 +19,18 @@ api.get('/api/v1/getVideos', (req, res) => {
       return fetch(videosUrl)
       .then(result => result.json())
       .then((json) => {
-            const allVids = json.source.videos.entries
-            return getWatchedVideos().then((watchedVids) => {
-                  console.log('WATCHED', watchedVids)
-                  // split videos into 'watched' and 'new'
-                  const responseVideos = allVids.reduce((acc, vid, i) => {
-                        if(watchedVids.includes(vid.id)) {
-                              acc.watched.push(vid)
-                        } else {
-                              acc.new.push(vid)
-                        }
-                        return acc
-                  }, {watched: [], new: []})
-                  console.log('RESPONSE', responseVideos.new.length)
-                  return res.send({videos: responseVideos})
+            const allVideos = json.source.videos.entries
+            return getWatchedVideoIds().then((watchedVideoIds) => {
+                  return res.send({
+                        allVideos,
+                        watchedVideos: allVideos.filter(vid => watchedVideoIds.includes(vid.id))
+                  })
             })
       })
       .catch(console.error)
 })
 
-function getWatchedVideos () {
+function getWatchedVideoIds () {
       return DB('watched_videos')
       .select()
       .then(videos => videos.map(vid => vid.vid_id))
@@ -53,17 +45,16 @@ api.post('/api/v1/addVideoToWatched/:id', (req, res) => {
       .limit(1)
       .then((result) => {
             const [foundWatchedVideo] = result
-            console.log('RESULT:', result)
-            // if already watched exit and send success status
+            // if already watched: exit and send success status
             if(foundWatchedVideo) {
-                  return res.status(200)
+                  return res.status(200).end()
             } else {
-                  // if not watched, insert item and send success status
+                  // if not watched: insert item and send success status
                   return DB('watched_videos')
                   .insert({
                         vid_id: req.params.id
                   })
-                  .then(() => res.status(200))
+                  .then(() => res.status(200).end())
             }
       })
 })
