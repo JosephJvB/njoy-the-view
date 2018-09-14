@@ -1,10 +1,9 @@
 // ---TEMPLATE---
 <template>
-  <div>
-    <!-- <p>hey world</p> -->
+  <div id="MAIN">
     <Header></Header>
-    <!-- <VideoCarousel v-bind:videos="newVideos"></VideoCarousel>
-    <WatchedVideosList v-bind:videos="watchedVideos"></WatchedVideosList> -->
+    <VideoCarousel v-bind:videos="newVideos"></VideoCarousel>
+    <WatchedVideosList v-bind:videos="watchedVideos"></WatchedVideosList>
   </div>
 </template>
 
@@ -12,15 +11,14 @@
 <script>
   // import components here
   import Header from './components/Header.vue'
-  // import VideoCarousel from './components/Video-Carousel.vue'
-  // import WatchedVideosList from './components/Watched-Videos-List.vue'
+  import VideoCarousel from './components/Video-Carousel.vue'
+  import WatchedVideosList from './components/Watched-Videos-List.vue'
 
   export default {
-    name: 'Main',
     components: {
       Header,
-      // VideoCarousel,
-      // WatchedVideosList,
+      VideoCarousel,
+      WatchedVideosList,
     },
     data: function () {
       return { 
