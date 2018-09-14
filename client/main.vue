@@ -2,6 +2,7 @@
 <template>
   <div id="MAIN">
     <Header></Header>
+    <button v-on:click="fetchVideos">GET VIDS</button>
     <VideoCarousel v-bind:videos="newVideos"></VideoCarousel>
     <WatchedVideosList v-bind:videos="watchedVideos"></WatchedVideosList>
   </div>
@@ -27,7 +28,12 @@
       }
     },
     methods: {
-      fetchVideos: function () {},
+      fetchVideos: function () {
+        return fetch('/api/v1/getVideos')
+        .then(result => result.json())
+        .then(json => console.log(json))
+        .catch(console.error)
+      },
       listVideoAsWatched: function () {},
     },
     mounted: function () {

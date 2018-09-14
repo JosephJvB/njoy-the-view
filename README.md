@@ -4,9 +4,7 @@
 
 - clone this repo and enter the directory
 
-> git clone https://github.com/JosephJvB/njoy-the-view.git
-
-> cd njoy-the-view
+> git clone https://github.com/JosephJvB/njoy-the-view.git && cd njoy-the-view
 
 - install dependencies
 
@@ -16,9 +14,7 @@
 
 > npm start
 
-- open in your browser!
-
-> open localhost:8080
+- open in your browser @ localhost:8080
 
 ### Resources used:
 - Vue guide: https://vuejs.org/v2/guide
