@@ -4,8 +4,8 @@
 
     <Carousel
       v-bind='{
-        perPage: "1",
-        navigationEnabled: "true"
+        perPage: 5,
+        navigationEnabled: true
       }'
       >
       <Slide
@@ -16,8 +16,8 @@
         <img
           id="SLIDE_ITEM"
           v-bind="{src:vid.images[0].url}"
-          @click.prevent="addWatchedVideo(vid.id)"
         />
+          <!-- dont forget .prevent! @click.prevent="addWatchedVideo(vid.id)" -->
       </Slide>
     </Carousel>
   </div>
@@ -49,6 +49,7 @@
     display: block;
   }
   #VID_TITLE {
+    height: 50px;
     text-align: center;
   }
 </style>
