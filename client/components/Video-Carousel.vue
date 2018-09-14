@@ -6,12 +6,14 @@
       :perPage="1"
       :navigationEnabled="true"
       >
+      <Navigation>
         <Slide
             v-for="(vid, i) in videos"
             :key="i"
           >
           <img v-bind:src="vid.images[0].url"/>
         </Slide>
+      </Navigation>
     </Carousel>
   </div>
 </template>
