@@ -1,7 +1,15 @@
 // ---TEMPLATE---
 <template>
-  <div id="WATCHED_VIDS">
-    watched vids here :)
+  <div
+    id="WATCHED_VIDS"
+  >
+    WATCHED VIDS BY TITLE:
+    <div
+      v-for="(vid, i) in videos"
+      :key="i"
+    >
+    {{ vid.title }}
+    </div>
   </div>
 </template>
 
@@ -15,7 +23,7 @@
 // ---STYLE---
 <style>
   #WATCHED_VIDS{
-    margin: 1rem auto;
+    margin: 7rem auto 1rem auto;
     border: solid 1px grey;
     height: 20%;
     width: 80%;

@@ -2,7 +2,6 @@
 <template>
   <div id="MAIN">
     <Header></Header>
-    <button v-on:click="addWatchedVideo">GET VIDS</button>
     <VideoCarousel
       v-if="allVideos.length > 0"
       v-bind:videos="allVideos"
@@ -40,6 +39,7 @@
         return fetch('/api/v1/getVideos', {method: 'get'})
         .then(result => result.json())
         .then(({allVideos, watchedVideos}) => {
+          console.log(watchedVideos)
           this.allVideos = allVideos
           this.watchedVideos = watchedVideos
         })
