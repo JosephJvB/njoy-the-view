@@ -1,14 +1,23 @@
 <html>
 	<head>
-		<title>Bon-appetit!</title>
+		<title>MOVIES!</title>
     	<meta name="description" content="t-t-t-tech test! ZOINKS">
 			<meta name="author" content="Joe-van-Bo">
 			<link rel="icon" type="image/png" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/129/movie-camera_1f3a5.png">
 			<style>
 			</style>
+			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</head>
 	<body>
-		<div id="welcome!">HELLO WORLD from html</div>
+		<div id="welcome">{{ yessir }}</div>
 		<!-- <script src="../client/index.js"></script> -->
+		<script>
+				const app = new Vue({
+					el: '#welcome',
+					data: {
+						yessir: 'we are learning view together :)'
+					}
+				})
+			</script>
 	</body>
 </html>
