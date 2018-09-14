@@ -9,15 +9,12 @@
 			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</head>
 	<body>
-		<div id="welcome">{{ yessir }}</div>
-		<!-- <script src="../client/index.js"></script> -->
-		<script>
-				const app = new Vue({
-					el: '#welcome',
-					data: {
-						yessir: 'we are learning view together :)'
-					}
-				})
-			</script>
+		<div id="welcome">
+			<div>{{ message }}</div>
+			<div v-for="text in items">
+				{{ text }}
+			</div>
+		</div>
+		<script src="../client/index.js"></script>
 	</body>
 </html>
