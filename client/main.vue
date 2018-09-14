@@ -3,8 +3,16 @@
   <div id="MAIN">
     <Header></Header>
     <button v-on:click="addWatchedVideo">GET VIDS</button>
-    <VideoCarousel v-if="allVideos.length > 0" v-bind:videos="allVideos"></VideoCarousel>
-    <WatchedVideosList v-bind:videos="watchedVideos"></WatchedVideosList>
+    <VideoCarousel
+      v-if="allVideos.length > 0"
+      v-bind:videos="allVideos"
+      v-bind:addWatchedVideo="addWatchedVideo"
+    >
+    </VideoCarousel>
+    <WatchedVideosList
+      v-bind:videos="watchedVideos"
+    >
+    </WatchedVideosList>
   </div>
 </template>
 
@@ -37,13 +45,17 @@
         })
         .catch(console.error)
       },
-      addWatchedVideo: function () {
-        const watchedVidId = 5
+      addWatchedVideo: function (watchedVidId) {
         return fetch(`/api/v1/addVideoToWatched/${watchedVidId}`, {method: 'post'})
-        .then(() => {
-          // add vid to watched on DB success
-          const watchedVideo = this.allVideos.find(vid => vid.id === watchedVidId)
-          this.watchedVideos = this.watchedVideos.push(watchedVideo)
+        .then((res) => {
+          if (res.status === 201) {
+            const watchedVideo = this.allVideos.find(vid => vid.id === watchedVidId)
+            this.watchedVideos = this.watchedVideos.concat(watchedVideo)
+          } else if(res.status === 304) {
+            // video has already been marked as watched
+          } else {
+            console.error('unexpected response code:', res)
+          }
         })
         .catch(console.error)
       },

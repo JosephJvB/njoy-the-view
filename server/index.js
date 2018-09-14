@@ -47,14 +47,14 @@ api.post('/api/v1/addVideoToWatched/:id', (req, res) => {
             const [foundWatchedVideo] = result
             // if already watched: exit and send success status
             if(foundWatchedVideo) {
-                  return res.status(200).end()
+                  return res.status(304).end()
             } else {
                   // if not watched: insert item and send success status
                   return DB('watched_videos')
                   .insert({
                         vid_id: req.params.id
                   })
-                  .then(() => res.status(200).end())
+                  .then(() => res.status(201).end())
             }
       })
 })

@@ -10,7 +10,10 @@
           v-for="(vid, i) in videos"
           :key="i"
         >
-        <img v-bind:src="vid.images[0].url"/>
+        <img
+          v-bind:src="vid.images[0].url"
+          v-on:click="() => addWatchedVideo(vid.id)"
+        />
       </Slide>
     </Carousel>
   </div>
@@ -25,7 +28,7 @@
       Carousel,
       Slide,
     },
-    props: ['videos'],
+    props: ['videos', 'addWatchedVideo'],
   }
 </script>
 
