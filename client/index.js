@@ -1,4 +1,5 @@
-// dont even have to import vue here! because we have the script tag in our html head :o
+import Vue from 'vue'
+
 import Main from './main'
 
 new Vue({
