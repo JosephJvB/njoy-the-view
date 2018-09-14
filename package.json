@@ -18,7 +18,12 @@
     "express": "^4.16.3",
     "knex": "^0.15.2",
     "parcel-bundler": "^1.9.7",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "vue": "^2.5.17",
+    "vue-hot-reload-api": "^2.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.2.0",
+    "vue-template-compiler": "^2.5.17"
+  }
 }

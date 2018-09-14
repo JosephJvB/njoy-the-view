@@ -1,21 +1,14 @@
 // dont even have to import vue here! because we have the script tag in our html head :o
+import Main from './main'
 
-const app = new Vue({
+new Vue({
   el: '#welcome',
-  data: {
-    message: 'YO',
-    items: [
-      'one',
-      'two',
-      'four',
-      'DARN! I CANT COUNT'
-    ]
-  }
+  render: (createElement) => createElement(Main)
 })
 
 // WORKS
-app.items.push('next item')
-app.message = 'oh snap you overwrote a property thats not functional!'
+// app.items.push('next item')
+// app.message = 'oh snap you overwrote a property thats not functional!'
 
 // DOES NOT WORK: looks like you cant add properties, but you  CAN
 // app.newProperty = 'added property later on :)'
