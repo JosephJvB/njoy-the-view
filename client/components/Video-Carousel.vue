@@ -3,8 +3,10 @@
   <div id="VID_CAROUSEL">
 
     <Carousel
-      :perPage="1"
-      :navigationEnabled="true"
+      v-bind='{
+        perPage: "1",
+        navigationEnabled: "true"
+      }'
       >
       <Slide
           v-for="(vid, i) in videos"
