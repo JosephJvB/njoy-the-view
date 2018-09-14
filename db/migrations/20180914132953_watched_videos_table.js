@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('watched_videos', (table) => {
     table.increments('id').primary()
-    table.string('vid_url')
+    table.string('vid_id')
   })
 };
 
