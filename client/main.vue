@@ -4,12 +4,14 @@
     <Header></Header>
     <VideoCarousel
       v-if="allVideos.length > 0"
-      v-bind:videos="allVideos"
-      v-bind:addWatchedVideo="addWatchedVideo"
+      v-bind="{
+          videos:allVideos,
+          addWatchedVideo: addWatchedVideo
+        }"
     >
     </VideoCarousel>
     <WatchedVideosList
-      v-bind:videos="watchedVideos"
+      v-bind="{videos: watchedVideos}"
     >
     </WatchedVideosList>
   </div>

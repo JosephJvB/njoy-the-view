@@ -11,8 +11,8 @@
           :key="i"
         >
         <img
-          v-bind:src="vid.images[0].url"
-          v-on:click="addWatchedVideo(vid.id)"
+          v-bind="{src:vid.images[0].url}"
+          @click.prevent="handleSlideClick(vid.id)"
         />
       </Slide>
     </Carousel>
@@ -27,6 +27,11 @@
     components: {
       Carousel,
       Slide,
+    },
+    methods: {
+      handleSlideClick: function (vidId) {
+        this.addWatchedVideo(vidId)
+      }
     },
     props: ['videos', 'addWatchedVideo'],
   }
