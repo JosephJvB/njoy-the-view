@@ -12,7 +12,7 @@
         >
         <img
           v-bind:src="vid.images[0].url"
-          @click="() => addWatchedVideo(vid.id)"
+          v-on:click="addWatchedVideo(vid.id)"
         />
       </Slide>
     </Carousel>
