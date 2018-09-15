@@ -65,9 +65,7 @@
       fetchVideos: function () {
         return fetch('/api/v1/getVideos', {method: 'get'})
         .then(result => result.json())
-        .then((props) => {
-          const {allVideos, watchedVideos} = props
-          console.log('ss', props)
+        .then(({allVideos, watchedVideos}) => {
           this.allVideos = allVideos
           this.watchedVideos = watchedVideos
         })

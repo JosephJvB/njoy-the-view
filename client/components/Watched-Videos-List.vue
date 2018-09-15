@@ -34,13 +34,9 @@
       saveRating: function (e) {
         const { value, id } = event.target[0]
         return fetch(`/api/v1/saveRating/${id}/${value}`, {method: 'post'})
-        .then(res => res.json())
-        .then(json => {
-          console.log(json)
-          this.watchedVideos = json.watchedVideos
-        }) 
+        .then(() => this.fetchVideos())
       }
-    }
+    },
   }
 </script>
 
