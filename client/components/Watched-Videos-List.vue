@@ -16,9 +16,9 @@
         <td>{{ vid.title }}</td>
         <td v-if="vid.rating">{{ vid.rating }}</td>
         <td v-else>
-          <form>
-            <input type="number"/>
-            <button v-on:click.prevent="saveRating">SAVE</button>
+          <form @submit.prevent="saveRating">
+            <input type="number" v-bind:id="vid.id"/>
+            <button>SAVE</button>
           </form>
         </td>
       </tr>
@@ -32,7 +32,7 @@
     props: ['videos'],
     methods: {
       saveRating: function (e) {
-        console.log(e)
+        const { value, id } = event.target[0]
         // return fetch(`/api/v1/saveRating/${id}/${value}`, {method: 'post'})
         // .then(() => getWatchedVids().then(result => this.watchedVids = result))
       }
