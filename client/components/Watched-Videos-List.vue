@@ -16,9 +16,9 @@
         <td>{{ vid.title }}</td>
         <td v-if="vid.rating">{{ vid.rating }}</td>
         <td v-else>
-          <form onsubmit="saveRating">
+          <form>
             <input type="number"/>
-            <button type="submit">SAVE</button>
+            <button v-on:click.prevent="saveRating">SAVE</button>
           </form>
         </td>
       </tr>
@@ -29,9 +29,6 @@
 // ---SCRIPT---
 <script>
   export default {
-    data: function () {
-      watchedVids: this.videos
-    },
     props: ['videos'],
     methods: {
       saveRating: function (e) {
