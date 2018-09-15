@@ -5,6 +5,7 @@
     <h3 v-if="currentVid" >{{currentVid.title}}</h3>
     <div id="VID">
       <videoPlayer
+        id="PLAYER"
         v-if="currentVid"
         class="vjs-custom-skin"
         v-bind='{
@@ -27,7 +28,7 @@
       </div>
       <ResizeObserver @notify="resize"/>
     </div>
-      <p v-if="currentVid" >"{{currentVid.description}}"</p>
+      <p v-if="currentVid" id="VID_DESCRIPTION" >"{{currentVid.description}}"</p>
   </div>
 </template>
 // ---SCRIPT---

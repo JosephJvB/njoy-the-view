@@ -1,7 +1,10 @@
 // ---TEMPLATE---
 <template>
   <div id="VID_CAROUSEL">
+    <h3 v-if="videos.length === 0">VIDEOS LOADING...</h3>
     <Carousel
+      id="CAROL"
+      v-else
       v-bind='{
         perPage: 5,
         navigationEnabled: true,
@@ -50,6 +53,9 @@
   }
   #VID_TITLE {
     height: 50px;
+    text-align: center;
+  }
+  h3 {
     text-align: center;
   }
 </style>
