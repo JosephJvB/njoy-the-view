@@ -4,7 +4,7 @@
     <Carousel
       v-bind='{
         perPage: 5,
-        navigationEnabled: true
+        navigationEnabled: true,
       }'
     >
       <Slide
@@ -18,7 +18,6 @@
             v-bind="{src: vid.images[0].url}"
           />
         </router-link>
-          <!-- dont forget .prevent! @click.prevent="addWatchedVideo(vid.id)" -->
       </Slide>
     </Carousel>
   </div>
