@@ -1,22 +1,23 @@
 // ---TEMPLATE---
 <template>
   <div id="VID_CAROUSEL">
-
     <Carousel
       v-bind='{
         perPage: 5,
         navigationEnabled: true
       }'
-      >
+    >
       <Slide
-          v-for="(vid, i) in videos"
-          :key="i"
-        >
-        <p id="VID_TITLE">{{ vid.title }}</p>
-        <img
-          id="SLIDE_ITEM"
-          v-bind="{src:vid.images[0].url}"
-        />
+        v-for="(vid, i) in videos"
+        :key="i"
+      >
+        <router-link v-bind:to="vid.id">
+          <p id="VID_TITLE">{{ vid.title }}</p>
+          <img
+            id="SLIDE_ITEM"
+            v-bind="{src: vid.images[0].url}"
+          />
+        </router-link>
           <!-- dont forget .prevent! @click.prevent="addWatchedVideo(vid.id)" -->
       </Slide>
     </Carousel>
@@ -38,7 +39,7 @@
 
 // ---STYLE---
 <style>
-  #VID_CAROUSEL{
+  #VID_CAROUSEL {
     margin: auto;
     border: solid 1px grey;
     height: 50%;

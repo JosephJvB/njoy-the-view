@@ -29,7 +29,9 @@
     "vue": "^2.5.17",
     "vue-carousel": "^0.13.1",
     "vue-loader": "^15.4.2",
-    "vue-template-compiler": "^2.5.17"
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.17",
+    "vue-video-player": "^5.0.2"
   },
   "devDependencies": {}
 }

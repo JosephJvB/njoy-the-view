@@ -2,18 +2,30 @@
 <template>
   <div id="MAIN">
     <Header></Header>
-    <VideoCarousel
-      v-if="allVideos.length > 0"
-      v-bind="{
-          videos: allVideos,
-          addWatchedVideo
-        }"
+    <!-- if no videos show loading spinner instead -->
+    <div
+      id="JOE_ROUTER"
     >
-    </VideoCarousel>
-    <WatchedVideosList
-      v-bind="{videos: watchedVideos}"
-    >
-    </WatchedVideosList>
+      <div
+        id="VID_LIST"
+        v-if="!vidIdFromParams"
+      >
+        <VideoCarousel
+          v-bind="{
+            videos: allVideos,
+            addWatchedVideo
+          }"
+        >
+        </VideoCarousel>
+        <WatchedVideosList
+          v-bind="{videos: watchedVideos}"
+        >
+        </WatchedVideosList>
+      </div>
+        <VideoPlayer
+        v-else>
+        </VideoPlayer>
+    </div>
   </div>
 </template>
 
@@ -23,17 +35,20 @@
   import Header from './components/Header.vue'
   import VideoCarousel from './components/Video-Carousel.vue'
   import WatchedVideosList from './components/Watched-Videos-List.vue'
+  import VideoPlayer from './components/Video-Player.vue'
 
   export default {
     components: {
       Header,
       VideoCarousel,
       WatchedVideosList,
+      VideoPlayer,
     },
     data: function () {
-        return { 
+      return { 
         allVideos: [],
         watchedVideos: [],
+        vidIdFromParams: this.$route.params.vidId
       }
     },
     methods: {
@@ -65,6 +80,11 @@
     mounted: function () {
       this.fetchVideos()
     },
+    watch: {
+      $route: function () {
+        this.vidIdFromParams = this.$route.params.vidId
+      }
+    }
   }
 </script>
 

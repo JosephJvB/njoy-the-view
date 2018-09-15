@@ -22,5 +22,6 @@
 
 ### Resources used:
 - Vue guide: https://vuejs.org/v2/guide
-- Vid-carousel: https://github.com/RobinCK/vue-gallery
+- https://router.vuejs.org/guide/
+- https://github.com/SSENSE/vue-carousel
 - Vid-api-endpoint: https://jbanew.staging.joybusinessacademy.com/api/v2/assignment/videos

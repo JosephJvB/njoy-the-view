@@ -1,0 +1,19 @@
+// ---TEMPLATE---
+<template>
+  <div id="VID_PLAYER">
+    I WILL BE A VIDEO PLAYER SOON
+  </div>
+</template>
+// ---SCRIPT---
+<script>
+  import VueVideoPlayer from 'vue-video-player'
+</script>
+// ---STYLE---
+<style>
+  #VID_PLAYER {
+    margin: auto;
+    border: solid 1px grey;
+    height: 50%;
+    width: 80%;
+  }
+</style>
