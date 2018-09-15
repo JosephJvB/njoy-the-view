@@ -19,7 +19,10 @@
         </VideoCarousel>
       </div>
         <WatchedVideosList
-          v-bind="{videos: watchedVideos}"
+          v-bind="{
+              videos: watchedVideos,
+              fetchVideos,
+            }"
           id="HISTORY"
           v-else-if="vidIdFromParams === 'history'"
         >
@@ -62,8 +65,9 @@
       fetchVideos: function () {
         return fetch('/api/v1/getVideos', {method: 'get'})
         .then(result => result.json())
-        .then(({allVideos, watchedVideos}) => {
-          console.log(watchedVideos)
+        .then((props) => {
+          const {allVideos, watchedVideos} = props
+          console.log('ss', props)
           this.allVideos = allVideos
           this.watchedVideos = watchedVideos
         })

@@ -20,20 +20,29 @@ api.get('/api/v1/getVideos', (req, res) => {
       .then(result => result.json())
       .then((json) => {
             const allVideos = json.source.videos.entries
-            return getWatchedVideoIds().then((watchedVideoIds) => {
+            return getWatchedVideos().then((watchedVideos) => {
+                  const watchedVideoIds = watchedVideos.map(v => v.vid_id)
+                  const vidsWithRating = allVideos.map(vid => {
+                        const foundVid = watchedVideos.find(v => v.vid_id === vid.id)
+                        return foundVid
+                              ? Object.assign({}, vid, {rating: foundVid.rating})
+                              : vid
+                  })
                   return res.send({
-                        allVideos,
-                        watchedVideos: allVideos.filter(vid => watchedVideoIds.includes(vid.id))
+                        allVideos: vidsWithRating,
+                        watchedVideos: vidsWithRating.filter(vid => {
+                              return watchedVideoIds.includes(vid.id)
+                        })
                   })
             })
       })
       .catch(console.error)
 })
 
-function getWatchedVideoIds () {
+function getWatchedVideos () {
       return DB('watched_videos')
       .select()
-      .then(videos => videos.map(vid => vid.vid_id))
+      // .then(videos => videos.map(vid => vid.vid_id))
       .catch(console.error)
 }
 
@@ -56,6 +65,14 @@ api.post('/api/v1/addVideoToWatched/:id', (req, res) => {
                   .then(() => res.status(201).end())
             }
       })
+})
+
+api.post('/api/v1/saveRating/:id/:value', (req, res) => {
+      const { id, value } = req.params
+      return DB('watched_videos')
+            .where('vid_id', id)
+            .update('rating', value)
+            .then(() => getWatchedVideos().then(watchedVideos => res.send({watchedVideos})))
 })
 
 // connect this middleware last :)
