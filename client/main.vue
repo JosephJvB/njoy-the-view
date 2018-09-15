@@ -17,17 +17,13 @@
           }"
         >
         </VideoCarousel>
+      </div>
         <WatchedVideosList
           v-bind="{videos: watchedVideos}"
-        >
-        </WatchedVideosList>
-      </div>
-        <div
           id="HISTORY"
           v-else-if="vidIdFromParams === 'history'"
         >
-          i be history
-        </div>
+        </WatchedVideosList>
         <VideoPlayer
           v-else
           v-bind='{

@@ -2,7 +2,7 @@
 <template>
   <div id="PLAYER_CONTAINER">
     <h3>NOW SHOWING:</h3>
-    <h3>{{currentVid.title}}</h3>
+    <h3 v-if="currentVid" >{{currentVid.title}}</h3>
     <div id="VID">
       <videoPlayer
         v-if="currentVid"
@@ -27,7 +27,7 @@
       </div>
       <ResizeObserver @notify="resize"/>
     </div>
-      <p>"{{currentVid.description}}"</p>
+      <p v-if="currentVid" >"{{currentVid.description}}"</p>
   </div>
 </template>
 // ---SCRIPT---
