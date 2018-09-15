@@ -51,3 +51,22 @@ Scenario('Refresh page reloads video data', (I) => {
   I.see('10 Things I Hate About You')
   I.seeElement('#VID_DESCRIPTION')
 })
+
+Scenario('Click on player starts video', (I) => {
+  I.click('//span[.="Play Video"]')
+  I.waitForElement('.vjs-control-bar', 3)
+})
+
+// works as a document.querySelector('button[title="Fullscreen"]').click() from devtools console
+// but nightmare isnt playing along!
+// Scenario('Can view video in full-screen', (I) => {
+//   I.click('button[title="Fullscreen"]')
+// })
+
+// cant hack finish the video like this..
+// Scenario('I finish video', (I) => {
+//   I.executeScript(function () {
+//     document.querySelector('vjs-play-progress').style = "{width: 99%}"
+//   })
+//   I.wait(10)
+// })
