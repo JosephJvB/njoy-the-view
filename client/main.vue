@@ -29,7 +29,10 @@
         </div>
         <VideoPlayer
           v-else
-          v-bind='{allVids: allVideos}'
+          v-bind='{
+              allVids: allVideos,
+              addWatchedVideo,
+            }'
         >
         </VideoPlayer>
     </div>
