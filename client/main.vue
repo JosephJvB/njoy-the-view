@@ -23,6 +23,7 @@
         </WatchedVideosList>
       </div>
         <div
+          id="HISTORY"
           v-else-if="vidIdFromParams === 'history'"
         >
           i be history
