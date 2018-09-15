@@ -6,6 +6,7 @@
     <h2 class="center" >WATCHED VIDEOS:</h2>
     <table>
       <tr>
+        <th></th>
         <th><h3 class="center">Title</h3></th>
         <th><h3 class="center">Rating</h3></th>
       </tr>
@@ -13,6 +14,7 @@
         v-for="(vid, i) in videos"
         :key="i"
       >
+        <td v-bind:style="{width: '20%'}"><img class="thumb" v-bind:src="vid.images[0].url"/></td>
         <td>{{ vid.title }}</td>
         <td v-if="vid.rating">{{ vid.rating }}</td>
         <td v-else>
@@ -42,7 +44,11 @@
 
 // ---STYLE---
 <style>
-  td{
+  .thumb {
+    height: 100px;
+    width: 60px;
+  }
+  td {
     height: 5vh;
     width: 30vw
   }
