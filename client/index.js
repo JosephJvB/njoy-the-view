@@ -8,11 +8,6 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     {
-      path: '/',
-      name: 'Main',
-      component: Main
-    },
-    {
       path: '/:vidId',
       name: 'Main',
       component: Main

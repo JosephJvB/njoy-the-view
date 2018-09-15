@@ -22,8 +22,15 @@
         >
         </WatchedVideosList>
       </div>
+        <div
+          v-else-if="vidIdFromParams === 'history'"
+        >
+          i be history
+        </div>
         <VideoPlayer
-        v-else>
+          v-else
+          v-bind='{allVids: allVideos}'
+        >
         </VideoPlayer>
     </div>
   </div>
@@ -48,7 +55,7 @@
       return { 
         allVideos: [],
         watchedVideos: [],
-        vidIdFromParams: this.$route.params.vidId
+        vidIdFromParams: this.$route.params.vidId,
       }
     },
     methods: {

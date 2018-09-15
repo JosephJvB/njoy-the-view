@@ -7,6 +7,18 @@
 // ---SCRIPT---
 <script>
   import VueVideoPlayer from 'vue-video-player'
+
+  export default {
+    data: function () {
+      return {
+        currentVid: this.allVids.find(vid => vid.id === this.$route.params.vidId)
+      }
+    },
+    mounted: function () {
+      console.log('hi', this.allVids.find(vid => vid.id === this.$route.params.vidId))
+    },
+    props: ['allVids'],
+  }
 </script>
 // ---STYLE---
 <style>
