@@ -11,7 +11,7 @@
       v-bind='{
         perPage: 5,
         navigationEnabled: true,
-        navigateTo: idx
+        navigateTo: slideIndex
       }'
     >
       <Slide
@@ -36,7 +36,7 @@
 
   export default {
     data: function () {
-      return { idx: 0 }
+      return { slideIndex: 0 }
     },
     components: {
       Carousel,
@@ -44,10 +44,10 @@
     },
     methods: {
       handleKeyPress: function (num) {
-        let newIdx = this.idx = this.idx + num
+        let newIdx = this.slideIndex + num
         if(newIdx < 0) newIdx = 0 // dont go under
         if(newIdx > 6) newIdx = 6 // dont go over
-        return newIdx
+        return this.slideIndex = newIdx
       }
     },
     props: ['videos', 'addWatchedVideo'],
