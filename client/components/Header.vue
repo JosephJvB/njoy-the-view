@@ -25,7 +25,7 @@ export default {
     flex-direction: row;
     margin: 2rem auto;
     width: 80%;
-    border: solid 1px grey; /* during dev only! to see elements better */
+    border: solid 1px grey;
     text-align: center;
   }
   .nav-item {

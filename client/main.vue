@@ -2,7 +2,6 @@
 <template>
   <div id="MAIN">
     <Header></Header>
-    <!-- if no videos show loading spinner instead -->
     <div
       id="JOE_ROUTER"
     >
