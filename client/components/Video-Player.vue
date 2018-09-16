@@ -82,7 +82,7 @@
   #VID {
     display: flex;
     justify-content: center;
-    margin: 1rem auto 4rem auto;
+    margin: 1rem auto 100px auto;
     height: 50%;
   }
 </style>
