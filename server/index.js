@@ -72,7 +72,7 @@ api.post('/api/v1/saveRating/:id/:value', (req, res) => {
       return DB('watched_videos')
             .where('vid_id', id)
             .update('rating', value)
-            .then(() => getWatchedVideos().then(watchedVideos => res.send({watchedVideos})))
+            .then(() => res.status(201).end())
 })
 
 // connect this middleware last :)
