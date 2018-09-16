@@ -10,5 +10,8 @@ module.exports = function() {
         ...etc
       }
     */
+   seeVideoPlaying: function () {
+     this.wait(5) // hacky mc hacking hackerson 😂 👌
+   }
   });
 }

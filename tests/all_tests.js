@@ -1,5 +1,10 @@
 Feature('@ALL')
 
+/* TODO:
+  - test that finish vid adds to history
+  - test that you can save a rating on a video @ history page
+*/
+
 Scenario('See carousel load', (I) => {
   I.amOnPage('/')
   I.see('VIDEOS LOADING')
@@ -42,7 +47,7 @@ Scenario('Click on slide item routes to video player', (I) => {
 })
 
 Scenario('Refresh page reloads video data', (I) => {
-  I.refresh()
+  I.refreshPage()
   I.dontSee('10 Things I Hate About You')
   I.dontSeeElement('#VID_DESCRIPTION')
   I.dontSeeElement('#PLAYER')
@@ -55,6 +60,7 @@ Scenario('Refresh page reloads video data', (I) => {
 Scenario('Click on player starts video', (I) => {
   I.click('//span[.="Play Video"]')
   I.waitForElement('.vjs-control-bar', 3)
+  I.seeVideoPlaying()
 })
 
 // works as a document.querySelector('button[title="Fullscreen"]').click() from devtools console
