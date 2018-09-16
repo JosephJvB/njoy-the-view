@@ -46,7 +46,7 @@
       handleKeyPress: function (num) {
         let newIdx = this.slideIndex + num
         if(newIdx < 0) newIdx = 0 // dont go under
-        if(newIdx > 6) newIdx = 6 // dont go over
+        if(newIdx > 5) newIdx = 5 // dont go over
         return this.slideIndex = newIdx
       }
     },
