@@ -20,9 +20,6 @@
 
 - finally! Send joe feedback @ `joevanbo@pm.me`
 
-### RETRO:
--
-
 ### Resources used:
 - Vid-api-endpoint: https://jbanew.staging.joybusinessacademy.com/api/v2/assignment/videos
 - Vue guide: https://vuejs.org/v2/guide
